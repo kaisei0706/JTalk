@@ -3,18 +3,56 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A3288F09267B787C00528A36 /* ZoomInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3288F08267B787C00528A36 /* ZoomInViewController.swift */; };
+		A3456676269EBA9800152E99 /* EmailEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3456675269EBA9800152E99 /* EmailEditViewController.swift */; };
+		A34F7CFE265BCA00000F31A6 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34F7CFD265BCA00000F31A6 /* EditViewController.swift */; };
+		A34F7D06265E86E3000F31A6 /* LikesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34F7D05265E86E3000F31A6 /* LikesViewController.swift */; };
+		A35A52C3269C101900CA2685 /* PasseditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35A52C2269C101900CA2685 /* PasseditViewController.swift */; };
+		A3615BE82655435300D80FBB /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3615BE72655435300D80FBB /* ProfileViewController.swift */; };
+		A3615BEE2655455000D80FBB /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3615BEC2655455000D80FBB /* ProfileTableViewCell.swift */; };
+		A3615BEF2655455000D80FBB /* ProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3615BED2655455000D80FBB /* ProfileTableViewCell.xib */; };
 		A3C8056F25EE227800443A66 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C8056E25EE227800443A66 /* AppDelegate.swift */; };
 		A3C8057125EE227800443A66 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C8057025EE227800443A66 /* SceneDelegate.swift */; };
-		A3C8057325EE227800443A66 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C8057225EE227800443A66 /* ViewController.swift */; };
 		A3C8057625EE227800443A66 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3C8057425EE227800443A66 /* Main.storyboard */; };
 		A3C8057825EE227C00443A66 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3C8057725EE227C00443A66 /* Assets.xcassets */; };
 		A3C8057B25EE227C00443A66 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3C8057925EE227C00443A66 /* LaunchScreen.storyboard */; };
 		A3C8058625EE227C00443A66 /* JTalkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C8058525EE227C00443A66 /* JTalkTests.swift */; };
 		A3C8059125EE227C00443A66 /* JTalkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C8059025EE227C00443A66 /* JTalkUITests.swift */; };
+		A3C805A525EE247D00443A66 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C805A425EE247D00443A66 /* TabBarController.swift */; };
+		A3C805B525EE308900443A66 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3C805B425EE308900443A66 /* GoogleService-Info.plist */; };
+		A3C805B625EE308900443A66 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3C805B425EE308900443A66 /* GoogleService-Info.plist */; };
+		A3C805B725EE308900443A66 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3C805B425EE308900443A66 /* GoogleService-Info.plist */; };
+		A3C805DC25EFBBAE00443A66 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C805DB25EFBBAE00443A66 /* PostViewController.swift */; };
+		A3C805E125EFC2FC00443A66 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C805E025EFC2FC00443A66 /* Const.swift */; };
+		A3C805E925F3287700443A66 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C805E825F3287600443A66 /* SignUpViewController.swift */; };
+		A3C8064725F3B8A000443A66 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C8064625F3B8A000443A66 /* User.swift */; };
+		A3C8064C25F3BCCA00443A66 /* PostData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C8064B25F3BCCA00443A66 /* PostData.swift */; };
+		A3C8065125F3BF4F00443A66 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C8065025F3BF4F00443A66 /* HomeViewController.swift */; };
+		A3C8065A25F3CAB700443A66 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C8065825F3CAB700443A66 /* PostTableViewCell.swift */; };
+		A3C8065B25F3CAB700443A66 /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3C8065925F3CAB700443A66 /* PostTableViewCell.xib */; };
+		A3C8066025F61B6300443A66 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C8065F25F61B6300443A66 /* SettingViewController.swift */; };
+		A3C8066525F6287700443A66 /* UIColor-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C8066425F6287700443A66 /* UIColor-Extension.swift */; };
+		A3C8066A25FB91C500443A66 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C8066925FB91C500443A66 /* LoginViewController.swift */; };
+		A3C8066F2601124E00443A66 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C8066E2601124E00443A66 /* File.swift */; };
+		A3C8067426037D5B00443A66 /* JListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C8067326037D5B00443A66 /* JListViewController.swift */; };
+		A3C8067D2603BA7800443A66 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C8067C2603BA7800443A66 /* MenuViewController.swift */; };
+		A3C806822605A65200443A66 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C806812605A65200443A66 /* Team.swift */; };
+		A3C806A7260D605500443A66 /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C806A6260D605500443A66 /* CommentViewController.swift */; };
+		A3C806AD260E29CE00443A66 /* CommentHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C806AB260E29CE00443A66 /* CommentHeaderTableViewCell.swift */; };
+		A3C806AE260E29CE00443A66 /* CommentHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3C806AC260E29CE00443A66 /* CommentHeaderTableViewCell.xib */; };
+		A3C806BD2614A4BB00443A66 /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C806BB2614A4BB00443A66 /* CommentTableViewCell.swift */; };
+		A3C806BE2614A4BC00443A66 /* CommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3C806BC2614A4BB00443A66 /* CommentTableViewCell.xib */; };
+		A3C806C32614CC8800443A66 /* CommentPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C806C22614CC8800443A66 /* CommentPostViewController.swift */; };
+		A3C806C92615415A00443A66 /* ChatInputAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C806C72615415A00443A66 /* ChatInputAccessoryView.swift */; };
+		A3C806CA2615415A00443A66 /* ChatInputAccessoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3C806C82615415A00443A66 /* ChatInputAccessoryView.xib */; };
+		A3C806D2261D9F2200443A66 /* CommentHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C806D1261D9F2000443A66 /* CommentHeaderFooterView.swift */; };
+		A3C806DA261DA1F900443A66 /* CommentHeaderFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3C806D9261DA1F900443A66 /* CommentHeaderFooterView.xib */; };
+		A3C806DF261F017B00443A66 /* CommentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C806DE261F017A00443A66 /* CommentData.swift */; };
+		D247A12ABA60593BFD61164E /* Pods_JTalk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A303F0C9D15FEFD8D3926342 /* Pods_JTalk.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,10 +73,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		910D2A3DD6738F485114B4C6 /* Pods-JTalk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JTalk.release.xcconfig"; path = "Target Support Files/Pods-JTalk/Pods-JTalk.release.xcconfig"; sourceTree = "<group>"; };
+		969AB6606CA0E1441DDC1080 /* Pods-JTalk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JTalk.debug.xcconfig"; path = "Target Support Files/Pods-JTalk/Pods-JTalk.debug.xcconfig"; sourceTree = "<group>"; };
+		A303F0C9D15FEFD8D3926342 /* Pods_JTalk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JTalk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A3288F08267B787C00528A36 /* ZoomInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomInViewController.swift; sourceTree = "<group>"; };
+		A3456675269EBA9800152E99 /* EmailEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailEditViewController.swift; sourceTree = "<group>"; };
+		A34F7CFD265BCA00000F31A6 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
+		A34F7D05265E86E3000F31A6 /* LikesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikesViewController.swift; sourceTree = "<group>"; };
+		A35A52C2269C101900CA2685 /* PasseditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasseditViewController.swift; sourceTree = "<group>"; };
+		A3615BE72655435300D80FBB /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		A3615BEC2655455000D80FBB /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
+		A3615BED2655455000D80FBB /* ProfileTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileTableViewCell.xib; sourceTree = "<group>"; };
 		A3C8056B25EE227800443A66 /* JTalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JTalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3C8056E25EE227800443A66 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A3C8057025EE227800443A66 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A3C8057225EE227800443A66 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A3C8057525EE227800443A66 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A3C8057725EE227C00443A66 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A3C8057A25EE227C00443A66 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +97,34 @@
 		A3C8058C25EE227C00443A66 /* JTalkUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JTalkUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3C8059025EE227C00443A66 /* JTalkUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JTalkUITests.swift; sourceTree = "<group>"; };
 		A3C8059225EE227C00443A66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A3C805A425EE247D00443A66 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		A3C805B425EE308900443A66 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A3C805DB25EFBBAE00443A66 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		A3C805E025EFC2FC00443A66 /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
+		A3C805E825F3287600443A66 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		A3C8064625F3B8A000443A66 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		A3C8064B25F3BCCA00443A66 /* PostData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostData.swift; sourceTree = "<group>"; };
+		A3C8065025F3BF4F00443A66 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		A3C8065825F3CAB700443A66 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
+		A3C8065925F3CAB700443A66 /* PostTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostTableViewCell.xib; sourceTree = "<group>"; };
+		A3C8065F25F61B6300443A66 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		A3C8066425F6287700443A66 /* UIColor-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor-Extension.swift"; sourceTree = "<group>"; };
+		A3C8066925FB91C500443A66 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		A3C8066E2601124E00443A66 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		A3C8067326037D5B00443A66 /* JListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JListViewController.swift; sourceTree = "<group>"; };
+		A3C8067C2603BA7800443A66 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		A3C806812605A65200443A66 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
+		A3C806A6260D605500443A66 /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
+		A3C806AB260E29CE00443A66 /* CommentHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentHeaderTableViewCell.swift; sourceTree = "<group>"; };
+		A3C806AC260E29CE00443A66 /* CommentHeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentHeaderTableViewCell.xib; sourceTree = "<group>"; };
+		A3C806BB2614A4BB00443A66 /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
+		A3C806BC2614A4BB00443A66 /* CommentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentTableViewCell.xib; sourceTree = "<group>"; };
+		A3C806C22614CC8800443A66 /* CommentPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentPostViewController.swift; sourceTree = "<group>"; };
+		A3C806C72615415A00443A66 /* ChatInputAccessoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatInputAccessoryView.swift; sourceTree = "<group>"; };
+		A3C806C82615415A00443A66 /* ChatInputAccessoryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatInputAccessoryView.xib; sourceTree = "<group>"; };
+		A3C806D1261D9F2000443A66 /* CommentHeaderFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentHeaderFooterView.swift; sourceTree = "<group>"; };
+		A3C806D9261DA1F900443A66 /* CommentHeaderFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentHeaderFooterView.xib; sourceTree = "<group>"; };
+		A3C806DE261F017A00443A66 /* CommentData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +132,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D247A12ABA60593BFD61164E /* Pods_JTalk.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +153,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		239509C7C9452A5348E5BEED /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				969AB6606CA0E1441DDC1080 /* Pods-JTalk.debug.xcconfig */,
+				910D2A3DD6738F485114B4C6 /* Pods-JTalk.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		6FBC87DC14848451EB6CA271 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A303F0C9D15FEFD8D3926342 /* Pods_JTalk.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A3C8056225EE227800443A66 = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +177,8 @@
 				A3C8058425EE227C00443A66 /* JTalkTests */,
 				A3C8058F25EE227C00443A66 /* JTalkUITests */,
 				A3C8056C25EE227800443A66 /* Products */,
+				239509C7C9452A5348E5BEED /* Pods */,
+				6FBC87DC14848451EB6CA271 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,8 +197,42 @@
 			children = (
 				A3C8056E25EE227800443A66 /* AppDelegate.swift */,
 				A3C8057025EE227800443A66 /* SceneDelegate.swift */,
-				A3C8057225EE227800443A66 /* ViewController.swift */,
+				A3C8066425F6287700443A66 /* UIColor-Extension.swift */,
+				A3C805E025EFC2FC00443A66 /* Const.swift */,
+				A3C8064625F3B8A000443A66 /* User.swift */,
+				A3C8064B25F3BCCA00443A66 /* PostData.swift */,
+				A3C806DE261F017A00443A66 /* CommentData.swift */,
+				A3C806812605A65200443A66 /* Team.swift */,
+				A3C8066E2601124E00443A66 /* File.swift */,
 				A3C8057425EE227800443A66 /* Main.storyboard */,
+				A3C8067326037D5B00443A66 /* JListViewController.swift */,
+				A3C8067C2603BA7800443A66 /* MenuViewController.swift */,
+				A3C806A6260D605500443A66 /* CommentViewController.swift */,
+				A3C806D1261D9F2000443A66 /* CommentHeaderFooterView.swift */,
+				A3C806D9261DA1F900443A66 /* CommentHeaderFooterView.xib */,
+				A3C805DB25EFBBAE00443A66 /* PostViewController.swift */,
+				A3C8065825F3CAB700443A66 /* PostTableViewCell.swift */,
+				A3C8065925F3CAB700443A66 /* PostTableViewCell.xib */,
+				A3C806AB260E29CE00443A66 /* CommentHeaderTableViewCell.swift */,
+				A3C806AC260E29CE00443A66 /* CommentHeaderTableViewCell.xib */,
+				A3C806BB2614A4BB00443A66 /* CommentTableViewCell.swift */,
+				A3C806BC2614A4BB00443A66 /* CommentTableViewCell.xib */,
+				A3C806C72615415A00443A66 /* ChatInputAccessoryView.swift */,
+				A3C806C82615415A00443A66 /* ChatInputAccessoryView.xib */,
+				A3C806C22614CC8800443A66 /* CommentPostViewController.swift */,
+				A3C805A425EE247D00443A66 /* TabBarController.swift */,
+				A3C8066925FB91C500443A66 /* LoginViewController.swift */,
+				A3615BEC2655455000D80FBB /* ProfileTableViewCell.swift */,
+				A3615BED2655455000D80FBB /* ProfileTableViewCell.xib */,
+				A3C8065F25F61B6300443A66 /* SettingViewController.swift */,
+				A3C8065025F3BF4F00443A66 /* HomeViewController.swift */,
+				A3288F08267B787C00528A36 /* ZoomInViewController.swift */,
+				A3615BE72655435300D80FBB /* ProfileViewController.swift */,
+				A34F7D05265E86E3000F31A6 /* LikesViewController.swift */,
+				A3C805E825F3287600443A66 /* SignUpViewController.swift */,
+				A34F7CFD265BCA00000F31A6 /* EditViewController.swift */,
+				A35A52C2269C101900CA2685 /* PasseditViewController.swift */,
+				A3456675269EBA9800152E99 /* EmailEditViewController.swift */,
 				A3C8057725EE227C00443A66 /* Assets.xcassets */,
 				A3C8057925EE227C00443A66 /* LaunchScreen.storyboard */,
 				A3C8057C25EE227C00443A66 /* Info.plist */,
@@ -123,6 +253,7 @@
 			isa = PBXGroup;
 			children = (
 				A3C8059025EE227C00443A66 /* JTalkUITests.swift */,
+				A3C805B425EE308900443A66 /* GoogleService-Info.plist */,
 				A3C8059225EE227C00443A66 /* Info.plist */,
 			);
 			path = JTalkUITests;
@@ -135,9 +266,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A3C8059525EE227C00443A66 /* Build configuration list for PBXNativeTarget "JTalk" */;
 			buildPhases = (
+				106D3FDA3ECE1E84B643CE03 /* [CP] Check Pods Manifest.lock */,
 				A3C8056725EE227800443A66 /* Sources */,
 				A3C8056825EE227800443A66 /* Frameworks */,
 				A3C8056925EE227800443A66 /* Resources */,
+				51F495726F4D16DD2A8BBE5A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -231,9 +364,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3C806AE260E29CE00443A66 /* CommentHeaderTableViewCell.xib in Resources */,
 				A3C8057B25EE227C00443A66 /* LaunchScreen.storyboard in Resources */,
+				A3C806DA261DA1F900443A66 /* CommentHeaderFooterView.xib in Resources */,
+				A3C806CA2615415A00443A66 /* ChatInputAccessoryView.xib in Resources */,
+				A3C8065B25F3CAB700443A66 /* PostTableViewCell.xib in Resources */,
 				A3C8057825EE227C00443A66 /* Assets.xcassets in Resources */,
+				A3C806BE2614A4BC00443A66 /* CommentTableViewCell.xib in Resources */,
 				A3C8057625EE227800443A66 /* Main.storyboard in Resources */,
+				A3C805B525EE308900443A66 /* GoogleService-Info.plist in Resources */,
+				A3615BEF2655455000D80FBB /* ProfileTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,6 +381,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3C805B625EE308900443A66 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,19 +389,90 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3C805B725EE308900443A66 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		106D3FDA3ECE1E84B643CE03 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JTalk-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		51F495726F4D16DD2A8BBE5A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JTalk/Pods-JTalk-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JTalk/Pods-JTalk-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-JTalk/Pods-JTalk-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A3C8056725EE227800443A66 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A3C8057325EE227800443A66 /* ViewController.swift in Sources */,
+				A3C805E925F3287700443A66 /* SignUpViewController.swift in Sources */,
+				A3C806DF261F017B00443A66 /* CommentData.swift in Sources */,
+				A3C8066525F6287700443A66 /* UIColor-Extension.swift in Sources */,
+				A3C8066025F61B6300443A66 /* SettingViewController.swift in Sources */,
+				A3C806AD260E29CE00443A66 /* CommentHeaderTableViewCell.swift in Sources */,
+				A3C806C92615415A00443A66 /* ChatInputAccessoryView.swift in Sources */,
+				A3C8064C25F3BCCA00443A66 /* PostData.swift in Sources */,
+				A34F7D06265E86E3000F31A6 /* LikesViewController.swift in Sources */,
+				A3C806D2261D9F2200443A66 /* CommentHeaderFooterView.swift in Sources */,
+				A3C805E125EFC2FC00443A66 /* Const.swift in Sources */,
+				A3615BEE2655455000D80FBB /* ProfileTableViewCell.swift in Sources */,
+				A3C805DC25EFBBAE00443A66 /* PostViewController.swift in Sources */,
+				A3456676269EBA9800152E99 /* EmailEditViewController.swift in Sources */,
+				A3288F09267B787C00528A36 /* ZoomInViewController.swift in Sources */,
+				A3C806BD2614A4BB00443A66 /* CommentTableViewCell.swift in Sources */,
+				A3C805A525EE247D00443A66 /* TabBarController.swift in Sources */,
+				A35A52C3269C101900CA2685 /* PasseditViewController.swift in Sources */,
+				A3C8067D2603BA7800443A66 /* MenuViewController.swift in Sources */,
+				A3C806A7260D605500443A66 /* CommentViewController.swift in Sources */,
+				A3C806822605A65200443A66 /* Team.swift in Sources */,
+				A3C8065125F3BF4F00443A66 /* HomeViewController.swift in Sources */,
 				A3C8056F25EE227800443A66 /* AppDelegate.swift in Sources */,
+				A3C8067426037D5B00443A66 /* JListViewController.swift in Sources */,
+				A3C8066F2601124E00443A66 /* File.swift in Sources */,
+				A3C806C32614CC8800443A66 /* CommentPostViewController.swift in Sources */,
+				A3C8065A25F3CAB700443A66 /* PostTableViewCell.swift in Sources */,
 				A3C8057125EE227800443A66 /* SceneDelegate.swift in Sources */,
+				A3615BE82655435300D80FBB /* ProfileViewController.swift in Sources */,
+				A3C8066A25FB91C500443A66 /* LoginViewController.swift in Sources */,
+				A3C8064725F3B8A000443A66 /* User.swift in Sources */,
+				A34F7CFE265BCA00000F31A6 /* EditViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,6 +645,7 @@
 		};
 		A3C8059625EE227C00443A66 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 969AB6606CA0E1441DDC1080 /* Pods-JTalk.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -452,6 +665,7 @@
 		};
 		A3C8059725EE227C00443A66 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 910D2A3DD6738F485114B4C6 /* Pods-JTalk.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
