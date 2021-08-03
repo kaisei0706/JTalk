@@ -36,7 +36,7 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back To 1",style: .plain,target: nil,action: nil)
 //        commentBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "message"), style: .done, target: self, action: #selector(addBarButtonTapped(_:)))
         
 //        self.navigationItem.rightBarButtonItems = [commentBarButtonItem]
@@ -181,7 +181,7 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        (view as! UITableViewHeaderFooterView).contentView.backgroundColor = UIColor.white
+        
     }
     
     @objc func addBarButtonTapped(_ sender: UIBarButtonItem) {
