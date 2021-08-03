@@ -11,6 +11,9 @@ import Firebase
 class Team: NSObject {
     var id: String
     var name: String?
+    var red: CGFloat?
+    var green: CGFloat?
+    var blue: CGFloat?
 
     init(document: QueryDocumentSnapshot) {
         self.id = document.documentID
@@ -18,6 +21,12 @@ class Team: NSObject {
         let teamDic = document.data()
         
         self.name = teamDic["name"] as? String
+        
+        self.red = teamDic["red"] as? CGFloat
+        
+        self.green = teamDic["green"] as? CGFloat
+
+        self.blue = teamDic["blue"] as? CGFloat
 
     }
 }

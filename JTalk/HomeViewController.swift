@@ -20,6 +20,10 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     var documentID = "北海道コンサドーレ札幌"
     
+    var red : CGFloat? = 255
+    var green : CGFloat? = 0
+    var blue : CGFloat? = 0
+    
     
     @IBOutlet weak var listTableView: UITableView!
     
@@ -48,6 +52,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         listTableView.estimatedRowHeight = 1000  // セルの高さの見積もり
         listTableView.rowHeight = UITableView.automaticDimension
+        listTableView.backgroundColor = UIColor.rgb(red: red!, green: green!, blue: blue!)
         
         // サイドバーメニューからの通知を受け取る
         NotificationCenter.default.addObserver(
@@ -130,7 +135,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // セルを取得してデータを設定する
         let cell = listTableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! PostTableViewCell
         
-        cell.contentView.backgroundColor = UIColor.red
+        cell.contentView.backgroundColor = UIColor.rgb(red: red!, green: green!, blue: blue!)
 
         var isOwner = false
         if postArray[indexPath.row].uid == Auth.auth().currentUser?.uid {
@@ -186,6 +191,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         print("ポストデータID\(documentID)")
         commentViewController.id = postData.id
         commentViewController.documentID = documentID
+        commentViewController.red = red
+        commentViewController.green = green
+        commentViewController.blue = blue
         self.navigationController?.pushViewController(commentViewController, animated: true)
         listTableView.deselectRow(at: indexPath, animated: true)
     }

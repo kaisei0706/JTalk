@@ -28,6 +28,9 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
     var commentArray: [CommentData] = []
     var listener: ListenerRegistration!
     var listener2: ListenerRegistration!
+    var red : CGFloat? = 255
+    var green : CGFloat? = 0
+    var blue : CGFloat? = 0
     
     @IBOutlet weak var commentTableView: UITableView!
     
@@ -50,6 +53,8 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
         // ヘッダーを登録する
         let nib = UINib(nibName: "CommentHeaderFooterView", bundle: nil)
         commentTableView.register(nib, forHeaderFooterViewReuseIdentifier: "CommentHeaderFooterView")
+        
+        commentTableView.backgroundColor = UIColor.rgb(red: red!, green: green!, blue: blue!)
         
         // Do any additional setup after loading the view.
     }
@@ -108,6 +113,7 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = commentTableView.dequeueReusableCell(withIdentifier: "CommentTableViewCell", for: indexPath) as! CommentTableViewCell
+        cell.contentView.backgroundColor = UIColor.rgb(red: red!, green: green!, blue: blue!)
         cell.setPostData(commentArray[indexPath.row])
         
         return cell
@@ -117,6 +123,7 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
         let headerFooterView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "CommentHeaderFooterView") as! CommentHeaderFooterView
         
         headerFooterView.delegate2 = self
+        headerFooterView.contentView.backgroundColor = UIColor.rgb(red: red!, green: green!, blue: blue!)
         
         if document == nil {
             return headerFooterView
@@ -127,9 +134,14 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
             isOwner =  true
         }
         
-        let documents = PostData(document: document!)
+            if document?.data() == nil {
+                return headerFooterView
+            } else {
+                let documents = PostData(document: document!)
+                headerFooterView.setup(documents, isOwner: isOwner)
+            }
         
-        headerFooterView.setup(documents, isOwner: isOwner)
+        
         // セル内のボタンのアクションをソースコードで設定する
         headerFooterView.comlikeButton.addTarget(self, action:#selector(handleButton(_:forEvent:)), for: .touchUpInside)
         

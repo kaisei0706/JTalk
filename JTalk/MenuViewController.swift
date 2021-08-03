@@ -69,6 +69,9 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         let team = teamArray[indexPath.row]
         _ = self.jListTableView.indexPathForSelectedRow
         homeViewController.documentID = team.id
+        homeViewController.red = team.red
+        homeViewController.green = team.green
+        homeViewController.blue = team.blue
         print("チームID\(homeViewController.documentID)")
         self.navigationController?.pushViewController(homeViewController, animated: true)
     }

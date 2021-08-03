@@ -14,6 +14,9 @@ import Nuke
 import SDWebImage
 
 class EditViewController: UIViewController {
+    
+    // 投稿データを格納する配列
+    var postArray: [PostData] = []
 
     @IBOutlet weak var EditImageButton: UIButton!
     @IBOutlet weak var editUsernameTextField: UITextField!
@@ -36,6 +39,9 @@ class EditViewController: UIViewController {
             "username": username,
         ] as [String : Any]
         
+        let docData2 = [
+            "name": username,
+        ] as [String : Any]
         Firestore.firestore().collection("users").document(uid).updateData(docData) {
             (err) in
             
@@ -50,6 +56,39 @@ class EditViewController: UIViewController {
             let alert = UIAlertController(title: "名前の変更に成功しました。", message: "", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
+            
+        }
+        
+        Firestore.firestore().collection("posts").whereField("uid", isEqualTo: uid ).getDocuments{ (querySnapshot, error) in
+            if let error = error {
+                print("DEBUG_PRINT: snapshotの取得が失敗しました。 \(error)")
+                return
+            }
+            // 取得したdocumentをもとにPostDataを作成し、postArrayの配列にする。
+            self.postArray = querySnapshot!.documents.map { document in
+                print("DEBUG_PRINT: document取得 \(document.documentID)")
+                let postData = PostData(document: document)
+                return postData
+            }
+            
+            let counts : Int = self.postArray.count
+            var count = 0
+            
+            while count < counts {
+                let postData = self.postArray[count]
+                Firestore.firestore().collection("posts").document(postData.id).updateData(docData2) {
+                    (err) in
+                    
+                    if let err = err {
+                        print("データベースへの保存に失敗しました。\(err)")
+                        HUD.hide()
+                        return
+                    }
+                }
+                count += 1
+                
+                
+            }
             
         }
     }
