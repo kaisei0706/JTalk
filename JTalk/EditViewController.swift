@@ -17,9 +17,14 @@ class EditViewController: UIViewController {
     
     // 投稿データを格納する配列
     var postArray: [PostData] = []
-
+    var commentArray : [CommentData] = []
+    var urlString : String?
+    
     @IBOutlet weak var EditImageButton: UIButton!
     @IBOutlet weak var editUsernameTextField: UITextField!
+    @IBOutlet weak var mailadressTextField: UITextField!
+    
+    
     @IBAction func editTappedProfileImageButton(_ sender: Any) {
         
         let imagePickerController = UIImagePickerController()
@@ -35,48 +40,55 @@ class EditViewController: UIViewController {
         guard let username = self.editUsernameTextField.text else { return }
         guard let uid = Auth.auth().currentUser?.uid else { return }
         
-        let docData = [
-            "username": username,
-        ] as [String : Any]
+        let imageRef = Storage.storage().reference().child(Const.ImagePath)
+        let desertRef = imageRef.child((uid) + ".jpg")
+        desertRef.delete { error in
+            if let error = error {
+                print(error)
+                // Uh-oh, an error occurred!
+            } else {
+                print("\(uid)" + ".jpg" + "削除成功")
+            }
+        }
         
-        let docData2 = [
-            "name": username,
-        ] as [String : Any]
-        Firestore.firestore().collection("users").document(uid).updateData(docData) {
-            (err) in
-            
+        
+        
+        let image = self.EditImageButton.imageView?.image
+        guard let uploadImage = image?.jpegData(compressionQuality: 0.3) else { return }
+        HUD.show(.progress)
+        
+        let storageRef = Storage.storage().reference().child(Const.ImagePath).child(uid)
+        
+        storageRef.putData(uploadImage, metadata: nil) { (metadata, err) in
             if let err = err {
-                print("データベースへの保存に失敗しました。\(err)")
+                print("Firestorageへの情報の保存に失敗しました。\(err)")
                 HUD.hide()
                 return
             }
             
-            print("Firestoreへの情報の保存が成功しました。")
-            HUD.hide()
-            let alert = UIAlertController(title: "名前の変更に成功しました。", message: "", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                self.present(alert, animated: true, completion: nil)
-            
-        }
-        
-        Firestore.firestore().collection("posts").whereField("uid", isEqualTo: uid ).getDocuments{ (querySnapshot, error) in
-            if let error = error {
-                print("DEBUG_PRINT: snapshotの取得が失敗しました。 \(error)")
-                return
-            }
-            // 取得したdocumentをもとにPostDataを作成し、postArrayの配列にする。
-            self.postArray = querySnapshot!.documents.map { document in
-                print("DEBUG_PRINT: document取得 \(document.documentID)")
-                let postData = PostData(document: document)
-                return postData
-            }
-            
-            let counts : Int = self.postArray.count
-            var count = 0
-            
-            while count < counts {
-                let postData = self.postArray[count]
-                Firestore.firestore().collection("posts").document(postData.id).updateData(docData2) {
+            storageRef.downloadURL {(url, err) in
+                if let err = err{
+                    print("Firestorageからのダウンロードに失敗しました。\(err)")
+                    HUD.hide()
+                    return
+                }
+                
+                self.urlString = url?.absoluteString
+                
+                print("写真:\(self.urlString)")
+                
+                let docData = [
+                    "username": username,
+                    "profileImageUrl": self.urlString
+                ] as [String : Any]
+                
+                let docData2 = [
+                    "name": username,
+                    "profileImageUrl": self.urlString
+                ] as [String : Any]
+                
+                
+                Firestore.firestore().collection("users").document(uid).updateData(docData) {
                     (err) in
                     
                     if let err = err {
@@ -84,12 +96,84 @@ class EditViewController: UIViewController {
                         HUD.hide()
                         return
                     }
+                    
+                    print("Firestoreへの情報の保存が成功しました。")
+                    HUD.hide()
+                    let alert = UIAlertController(title: "登録情報の変更に成功しました。", message: "", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                    
                 }
-                count += 1
+                
+                
+                
+                Firestore.firestore().collection("posts").whereField("uid", isEqualTo: uid ).getDocuments{ (querySnapshot, error) in
+                    if let error = error {
+                        print("DEBUG_PRINT: snapshotの取得が失敗しました。 \(error)")
+                        return
+                    }
+                    // 取得したdocumentをもとにPostDataを作成し、postArrayの配列にする。
+                    self.postArray = querySnapshot!.documents.map { document in
+                        print("DEBUG_PRINT: document取得 \(document.documentID)")
+                        let postData = PostData(document: document)
+                        return postData
+                    }
+                    
+                    let counts : Int = self.postArray.count
+                    var count = 0
+                    
+                    while count < counts {
+                        let postData = self.postArray[count]
+                        Firestore.firestore().collection("posts").document(postData.id).updateData(docData2) {
+                            (err) in
+                            
+                            if let err = err {
+                                print("データベースへの保存に失敗しました。\(err)")
+                                HUD.hide()
+                                return
+                            }
+                        }
+                        count += 1
+                        
+                    }
+                    
+                    Firestore.firestore().collection("posts").document().collection("comments").whereField("uid", isEqualTo: uid ).getDocuments{ (querySnapshot, error) in
+                        if let error = error {
+                            print("DEBUG_PRINT: snapshotの取得が失敗しました。 \(error)")
+                            return
+                        }
+                        // 取得したdocumentをもとにPostDataを作成し、postArrayの配列にする。
+                        self.commentArray = querySnapshot!.documents.map { document in
+                            print("DEBUG_PRINT: commentArray格納 \(document.documentID)")
+                            let commentData = CommentData(document: document)
+                            return commentData
+                        }
+                        
+                        let counts : Int = self.commentArray.count
+                        var count = 0
+                        
+                        while count < counts {
+                            let commentData = self.commentArray[count]
+                            Firestore.firestore().collection("posts").document().collection("comments").document(commentData.id).updateData(docData2) {
+                                (err) in
+                                
+                                if let err = err {
+                                    print("データベースへの保存に失敗しました。\(err)")
+                                    HUD.hide()
+                                    return
+                                }
+                            }
+                            count += 1
+                            
+                        }
+                        
+                    }
+                    
+                }
+                
                 
                 
             }
-            
         }
     }
     
@@ -115,29 +199,31 @@ class EditViewController: UIViewController {
             }
             
             self.editUsernameTextField.text = document?.get("username") as? String
+            self.mailadressTextField.text = document?.get("email") as? String
+            self.mailadressTextField.isEnabled = false
             
             if URL(string: document?.get("profileImageUrl") as! String) != nil {
                 self.EditImageButton.sd_setBackgroundImage(with: URL(string: document?.get("profileImageUrl") as! String), for: .normal)
             }
             
         }
-
+        
         // Do any additional setup after loading the view.
     }
     
     
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
 
 extension EditViewController: UIImagePickerControllerDelegate,UINavigationControllerDelegate{

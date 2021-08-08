@@ -36,7 +36,6 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back To 1",style: .plain,target: nil,action: nil)
 //        commentBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "message"), style: .done, target: self, action: #selector(addBarButtonTapped(_:)))
         
 //        self.navigationItem.rightBarButtonItems = [commentBarButtonItem]

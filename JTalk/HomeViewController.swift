@@ -24,6 +24,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     var green : CGFloat? = 0
     var blue : CGFloat? = 0
     
+    fileprivate let refreshCtl = UIRefreshControl()
+    
     
     @IBOutlet weak var listTableView: UITableView!
     
@@ -54,6 +56,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         listTableView.rowHeight = UITableView.automaticDimension
         listTableView.backgroundColor = UIColor.rgb(red: red!, green: green!, blue: blue!)
         
+        listTableView.refreshControl = refreshCtl
+        refreshCtl.addTarget(self, action: #selector(HomeViewController.refresh(sender:)), for: .valueChanged)
+        
         // サイドバーメニューからの通知を受け取る
         NotificationCenter.default.addObserver(
             self,
@@ -62,6 +67,62 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             object: nil
         )
         
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Home",style: .plain,target: nil,action: nil)
+        
+    }
+    
+    @objc func refresh(sender: UIRefreshControl) {
+        // ここが引っ張られるたびに呼び出される
+        // 通信終了後、endRefreshingを実行することでロードインジケーター（くるくる）が終了
+        if Auth.auth().currentUser != nil {
+            // ログイン済み
+            if listener == nil {
+                // listener未登録なら、登録してスナップショットを受信する
+                if documentID == "" {
+                    let postsRef = Firestore.firestore().collection(Const.PostPath).whereField("teamName", isEqualTo: "北海道コンサドーレ札幌").order(by: "date", descending: true)
+                    listener = postsRef.addSnapshotListener() { (querySnapshot, error) in
+                        if let error = error {
+                            print("DEBUG_PRINT: snapshotの取得が失敗しました。 \(error)")
+                            return
+                        }
+                        // 取得したdocumentをもとにPostDataを作成し、postArrayの配列にする。
+                        self.postArray = querySnapshot!.documents.map { document in
+                            print("DEBUG_PRINT: document取得 \(document.documentID)")
+                            let postData = PostData(document: document)
+                            return postData
+                        }
+                        // TableViewの表示を更新する
+                        self.listTableView.reloadData()
+                    }
+                } else {
+                    let postsRef = Firestore.firestore().collection(Const.PostPath).whereField("teamName", isEqualTo: documentID).order(by: "date", descending: true)
+                    listener = postsRef.addSnapshotListener() { (querySnapshot, error) in
+                        if let error = error {
+                            print("DEBUG_PRINT: snapshotの取得が失敗しました。 \(error)")
+                            return
+                        }
+                        // 取得したdocumentをもとにPostDataを作成し、postArrayの配列にする。
+                        self.postArray = querySnapshot!.documents.map { document in
+                            print("DEBUG_PRINT: document取得 \(document.documentID)")
+                            let postData = PostData(document: document)
+                            return postData
+                        }
+                        // TableViewの表示を更新する
+                        self.listTableView.reloadData()
+                    }
+                }
+            }
+        } else {
+            // ログイン未(またはログアウト済み)
+            if listener != nil {
+                // listener登録済みなら削除してpostArrayをクリアする
+                listener.remove()
+                listener = nil
+                postArray = []
+                listTableView.reloadData()
+            }
+        }
+        refreshCtl.endRefreshing()
     }
     
     // 選択されたサイドバーのアイテムを取得

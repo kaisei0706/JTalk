@@ -69,6 +69,7 @@ class SignUpViewController: UIViewController {
     }
     
     @objc func checkFirebase() {
+        
         if Auth.auth().currentUser != nil {
             Auth.auth().currentUser?.reload(completion: { error in
                 if error == nil {
@@ -79,8 +80,8 @@ class SignUpViewController: UIViewController {
                         guard let uploadImage = image?.jpegData(compressionQuality: 0.3) else { return }
                         HUD.show(.progress)
                         
-                        let filename = NSUUID().uuidString
-                        let storageRef = Storage.storage().reference().child(Const.ImagePath).child(filename)
+                        let uid = Auth.auth().currentUser?.uid
+                        let storageRef = Storage.storage().reference().child(Const.ImagePath).child((uid!) + ".jpg")
                         
                         storageRef.putData(uploadImage, metadata: nil) { (matadata, err) in
                             if let err = err {

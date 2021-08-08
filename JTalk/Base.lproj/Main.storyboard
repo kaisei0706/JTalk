@@ -778,18 +778,17 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="メールアドレス" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0G8-uX-8oT">
+                                <rect key="frame" x="10" y="328" width="394" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="br6-Ga-OAD">
                                 <rect key="frame" x="10" y="284" width="394" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4tj-zT-HAG">
-                                <rect key="frame" x="191.5" y="338" width="31" height="30"/>
-                                <state key="normal" title="登録"/>
-                                <connections>
-                                    <action selector="editRegisterButton:" destination="YAh-pP-ufH" eventType="touchUpInside" id="r6A-wf-nrO"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KKr-ai-q6n">
                                 <rect key="frame" x="137" y="108" width="140" height="140"/>
                                 <constraints>
@@ -801,18 +800,30 @@
                                     <action selector="editTappedProfileImageButton:" destination="YAh-pP-ufH" eventType="touchUpInside" id="xgB-mF-BdT"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vke-Da-uqZ">
-                                <rect key="frame" x="122.5" y="373" width="169" height="30"/>
-                                <state key="normal" title="メールアドレスの再設定"/>
-                                <connections>
-                                    <segue destination="s0o-Gh-gxv" kind="show" id="XRZ-MM-goa"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dAV-zu-Bez">
-                                <rect key="frame" x="138" y="408" width="138" height="30"/>
+                                <rect key="frame" x="138" y="438" width="138" height="30"/>
                                 <state key="normal" title="パスワードの再設定"/>
                                 <connections>
                                     <segue destination="eqJ-iH-nIp" kind="show" id="kEd-49-zaq"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ul0-Jx-xqr">
+                                <rect key="frame" x="10" y="354" width="394" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D1j-iB-Ik2">
+                                <rect key="frame" x="363" y="350" width="31" height="30"/>
+                                <state key="normal" title="編集"/>
+                                <connections>
+                                    <segue destination="s0o-Gh-gxv" kind="show" id="nOD-P1-lJu"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4tj-zT-HAG">
+                                <rect key="frame" x="191.5" y="398" width="31" height="30"/>
+                                <state key="normal" title="登録"/>
+                                <connections>
+                                    <action selector="editRegisterButton:" destination="YAh-pP-ufH" eventType="touchUpInside" id="r6A-wf-nrO"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -821,30 +832,37 @@
                         <constraints>
                             <constraint firstItem="KKr-ai-q6n" firstAttribute="centerX" secondItem="4tj-zT-HAG" secondAttribute="centerX" id="76W-OZ-k14"/>
                             <constraint firstItem="p2i-F9-KcB" firstAttribute="trailing" secondItem="6fj-9X-Rud" secondAttribute="trailing" constant="10" id="7XQ-sk-LnK"/>
+                            <constraint firstItem="dAV-zu-Bez" firstAttribute="top" secondItem="4tj-zT-HAG" secondAttribute="bottom" constant="10" id="93O-pX-gLk"/>
                             <constraint firstItem="br6-Ga-OAD" firstAttribute="leading" secondItem="p2i-F9-KcB" secondAttribute="leading" constant="10" id="CHy-zu-ckM"/>
                             <constraint firstItem="KKr-ai-q6n" firstAttribute="top" secondItem="p2i-F9-KcB" secondAttribute="top" constant="20" id="DH8-ek-b25"/>
                             <constraint firstItem="KKr-ai-q6n" firstAttribute="centerX" secondItem="br6-Ga-OAD" secondAttribute="centerX" id="E6s-E8-15f"/>
-                            <constraint firstItem="Vke-Da-uqZ" firstAttribute="centerX" secondItem="GSt-MM-RUz" secondAttribute="centerX" id="Kwb-MB-TkU"/>
+                            <constraint firstItem="p2i-F9-KcB" firstAttribute="trailing" secondItem="D1j-iB-Ik2" secondAttribute="trailing" constant="20" id="H5O-EM-PWf"/>
                             <constraint firstItem="br6-Ga-OAD" firstAttribute="top" secondItem="6fj-9X-Rud" secondAttribute="bottom" constant="5" id="SVQ-2x-b9v"/>
-                            <constraint firstItem="Vke-Da-uqZ" firstAttribute="top" secondItem="4tj-zT-HAG" secondAttribute="bottom" constant="5" id="W7E-LB-LPs"/>
+                            <constraint firstItem="0G8-uX-8oT" firstAttribute="leading" secondItem="6fj-9X-Rud" secondAttribute="leading" id="ScJ-vm-qRz"/>
+                            <constraint firstItem="0G8-uX-8oT" firstAttribute="top" secondItem="br6-Ga-OAD" secondAttribute="bottom" constant="10" id="Vhe-BP-Qle"/>
+                            <constraint firstItem="0G8-uX-8oT" firstAttribute="trailing" secondItem="6fj-9X-Rud" secondAttribute="trailing" id="Vnu-MU-dW4"/>
+                            <constraint firstItem="ul0-Jx-xqr" firstAttribute="trailing" secondItem="br6-Ga-OAD" secondAttribute="trailing" id="bwc-tk-dfq"/>
                             <constraint firstItem="6fj-9X-Rud" firstAttribute="leading" secondItem="p2i-F9-KcB" secondAttribute="leading" constant="10" id="dgW-Ew-2az"/>
                             <constraint firstItem="KKr-ai-q6n" firstAttribute="centerX" secondItem="GSt-MM-RUz" secondAttribute="centerX" id="ezZ-DR-wPL"/>
-                            <constraint firstItem="4tj-zT-HAG" firstAttribute="top" secondItem="br6-Ga-OAD" secondAttribute="bottom" constant="20" id="gHV-IV-W3M"/>
+                            <constraint firstItem="ul0-Jx-xqr" firstAttribute="top" secondItem="0G8-uX-8oT" secondAttribute="bottom" constant="5" id="gUR-Di-N3Q"/>
+                            <constraint firstItem="ul0-Jx-xqr" firstAttribute="leading" secondItem="br6-Ga-OAD" secondAttribute="leading" id="j0G-c7-biX"/>
                             <constraint firstItem="6fj-9X-Rud" firstAttribute="top" secondItem="KKr-ai-q6n" secondAttribute="bottom" constant="10" id="llK-Q8-mYA"/>
+                            <constraint firstItem="4tj-zT-HAG" firstAttribute="top" secondItem="ul0-Jx-xqr" secondAttribute="bottom" constant="10" id="oC4-ha-vxC"/>
                             <constraint firstItem="dAV-zu-Bez" firstAttribute="centerX" secondItem="GSt-MM-RUz" secondAttribute="centerX" id="rfM-UO-yob"/>
                             <constraint firstItem="p2i-F9-KcB" firstAttribute="trailing" secondItem="br6-Ga-OAD" secondAttribute="trailing" constant="10" id="vPi-P6-mh6"/>
-                            <constraint firstItem="dAV-zu-Bez" firstAttribute="top" secondItem="Vke-Da-uqZ" secondAttribute="bottom" constant="5" id="z31-mH-PId"/>
+                            <constraint firstItem="D1j-iB-Ik2" firstAttribute="top" secondItem="0G8-uX-8oT" secondAttribute="bottom" constant="1" id="wfA-W9-Ehq"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="p1D-81-Hl9"/>
                     <connections>
                         <outlet property="EditImageButton" destination="KKr-ai-q6n" id="OXN-mD-nQO"/>
                         <outlet property="editUsernameTextField" destination="br6-Ga-OAD" id="KhN-00-MAN"/>
+                        <outlet property="mailadressTextField" destination="ul0-Jx-xqr" id="lYn-w3-l2a"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VXK-ys-3i8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4897" y="1729"/>
+            <point key="canvasLocation" x="4895.652173913044" y="1728.3482142857142"/>
         </scene>
         <!--Email Edit View Controller-->
         <scene sceneID="FCP-VD-dpa">

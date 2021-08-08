@@ -55,8 +55,6 @@ class PostTableViewCell: UITableViewCell {
                     }
                 }
             
-                
-                
             }
             let postsRef = Firestore.firestore().collection(Const.PostPath).document(self.id)
             postsRef.delete() { err in
