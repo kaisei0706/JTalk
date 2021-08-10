@@ -19,7 +19,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     var selectedPostData: PostData?
     
     
-    var documentID : String = "北海道コンサドーレ札幌"
+    var documentID = "北海道コンサドーレ札幌"
     
     var red : CGFloat? = 255
     var green : CGFloat? = 0
@@ -44,16 +44,16 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         super.viewDidLoad()
         
-        let uid = Auth.auth().currentUser?.uid
-        Firestore.firestore().collection(Const.UserPath).document(uid!).getDocument() { (document, error) in
-            if let error = error {
-                print("DEBUG_PRINT: snapshotの取得が失敗しました。 \(error)")
-                return
-            }
-            
-            self.documentID = document?.get("teamname") as! String
-            
-        }
+//        let uid = Auth.auth().currentUser?.uid
+//        Firestore.firestore().collection(Const.UserPath).document(uid!).getDocument() { (document, error) in
+//            if let error = error {
+//                print("DEBUG_PRINT: snapshotの取得が失敗しました。 \(error)")
+//                return
+//            }
+//            
+//            self.documentID = document?.get("teamname") as! String
+//            
+//        }
         
         self.navigationItem.title = documentID
         
