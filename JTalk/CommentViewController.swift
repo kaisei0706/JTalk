@@ -338,10 +338,8 @@ extension CommentViewController : ChatInputAccessoryViewDelegate {
             
             let docData = [
                 "uid": uid,
-                "name": name,
                 "date": Timestamp(),
                 "comment": text,
-                "profileImageUrl": profileImageUrl,
             ] as [String : Any]
             
             Firestore.firestore().collection(Const.PostPath).document(self.id).collection("comments").document().setData(docData) { (err) in

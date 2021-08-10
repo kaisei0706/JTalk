@@ -25,6 +25,7 @@ class CommentHeaderFooterView: UITableViewHeaderFooterView {
     var isLiked: Bool = false
     var likes:[String] = []
     var strCounter: Int = 0
+    var listener2: ListenerRegistration!
     
     
     @IBOutlet weak var comMainView: UIView!
@@ -92,6 +93,22 @@ class CommentHeaderFooterView: UITableViewHeaderFooterView {
         comMainImageView.layer.cornerRadius = 25
         
         id = postData.id
+        
+        let userRef = Firestore.firestore().collection(Const.UserPath).document(postData.uid!)
+        
+        
+        listener2 = userRef.addSnapshotListener(){ (document, error) in
+            if let error = error {
+                print("DEBUG_PRINT: snapshotの取得が失敗しました。 \(error)")
+                return
+            }
+            
+            self.comMainUserNameLabel.text =  document?.get("username") as? String
+            
+            let imageFileUrl = document?.get("profileImageUrl") as! String
+            self.showImage(imageView: self.comMainImageView, url: "\(imageFileUrl)")
+            
+        }
         // 画像の表示
         comPost0ImageView.sd_imageIndicator = SDWebImageActivityIndicator.gray
         comPost1ImageView.sd_imageIndicator = SDWebImageActivityIndicator.gray
@@ -149,9 +166,6 @@ class CommentHeaderFooterView: UITableViewHeaderFooterView {
             strCounter += 1
         }
         
-        
-        
-        self.comMainUserNameLabel.text = "\(postData.name!)"
         // 投稿の表示
         self.comMainTextLabel.text = "\(postData.text!)"
         
@@ -190,6 +204,17 @@ class CommentHeaderFooterView: UITableViewHeaderFooterView {
         self.isOwner = isOwner
         
         
+    }
+    
+    private func showImage(imageView: UIImageView, url: String) {
+        let url = URL(string: url)
+        do {
+            let data = try Data(contentsOf: url!)
+            let image = UIImage(data: data)
+            imageView.image = image
+        } catch let err {
+            print("Error: \(err.localizedDescription)")
+        }
     }
     
     

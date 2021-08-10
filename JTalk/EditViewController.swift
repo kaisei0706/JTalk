@@ -57,7 +57,7 @@ class EditViewController: UIViewController {
         guard let uploadImage = image?.jpegData(compressionQuality: 0.3) else { return }
         HUD.show(.progress)
         
-        let storageRef = Storage.storage().reference().child(Const.ImagePath).child(uid)
+        let storageRef = Storage.storage().reference().child(Const.ImagePath).child((uid) + ".jpg")
         
         storageRef.putData(uploadImage, metadata: nil) { (metadata, err) in
             if let err = err {
@@ -75,16 +75,16 @@ class EditViewController: UIViewController {
                 
                 self.urlString = url?.absoluteString
                 
-                print("写真:\(self.urlString)")
+                print("写真:\(self.urlString!)")
                 
                 let docData = [
                     "username": username,
-                    "profileImageUrl": self.urlString
+                    "profileImageUrl": self.urlString!
                 ] as [String : Any]
                 
                 let docData2 = [
                     "name": username,
-                    "profileImageUrl": self.urlString
+                    "profileImageUrl": self.urlString!
                 ] as [String : Any]
                 
                 
@@ -104,75 +104,6 @@ class EditViewController: UIViewController {
                     self.present(alert, animated: true, completion: nil)
                     
                 }
-                
-                
-                
-                Firestore.firestore().collection("posts").whereField("uid", isEqualTo: uid ).getDocuments{ (querySnapshot, error) in
-                    if let error = error {
-                        print("DEBUG_PRINT: snapshotの取得が失敗しました。 \(error)")
-                        return
-                    }
-                    // 取得したdocumentをもとにPostDataを作成し、postArrayの配列にする。
-                    self.postArray = querySnapshot!.documents.map { document in
-                        print("DEBUG_PRINT: document取得 \(document.documentID)")
-                        let postData = PostData(document: document)
-                        return postData
-                    }
-                    
-                    let counts : Int = self.postArray.count
-                    var count = 0
-                    
-                    while count < counts {
-                        let postData = self.postArray[count]
-                        Firestore.firestore().collection("posts").document(postData.id).updateData(docData2) {
-                            (err) in
-                            
-                            if let err = err {
-                                print("データベースへの保存に失敗しました。\(err)")
-                                HUD.hide()
-                                return
-                            }
-                        }
-                        count += 1
-                        
-                    }
-                    
-                    Firestore.firestore().collection("posts").document().collection("comments").whereField("uid", isEqualTo: uid ).getDocuments{ (querySnapshot, error) in
-                        if let error = error {
-                            print("DEBUG_PRINT: snapshotの取得が失敗しました。 \(error)")
-                            return
-                        }
-                        // 取得したdocumentをもとにPostDataを作成し、postArrayの配列にする。
-                        self.commentArray = querySnapshot!.documents.map { document in
-                            print("DEBUG_PRINT: commentArray格納 \(document.documentID)")
-                            let commentData = CommentData(document: document)
-                            return commentData
-                        }
-                        
-                        let counts : Int = self.commentArray.count
-                        var count = 0
-                        
-                        while count < counts {
-                            let commentData = self.commentArray[count]
-                            Firestore.firestore().collection("posts").document().collection("comments").document(commentData.id).updateData(docData2) {
-                                (err) in
-                                
-                                if let err = err {
-                                    print("データベースへの保存に失敗しました。\(err)")
-                                    HUD.hide()
-                                    return
-                                }
-                            }
-                            count += 1
-                            
-                        }
-                        
-                    }
-                    
-                }
-                
-                
-                
             }
         }
     }

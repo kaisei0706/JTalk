@@ -148,9 +148,7 @@ class PostViewController: UIViewController, PHPickerViewControllerDelegate {
                 
                 let postDic = [
                     "teamName": self.documentID,
-                    "uid": uid,
-                    "name": self.postNameLabel.text!,
-                    "profileImageUrl" : profileImageUrl,
+                    "uid": uid,         
                     "date": FieldValue.serverTimestamp(),
                     "text": self.postTextView.text!,
                     "commentCount": 0,

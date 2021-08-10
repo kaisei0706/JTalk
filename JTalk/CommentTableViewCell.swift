@@ -17,7 +17,8 @@ class CommentTableViewCell: UITableViewCell {
     @IBOutlet weak var comDateLabel: UILabel!
     
     var date: Date?
-    
+    var listener2: ListenerRegistration!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -32,8 +33,20 @@ class CommentTableViewCell: UITableViewCell {
     
     func setPostData(_ commentData: CommentData) {
         
+        let userRef = Firestore.firestore().collection(Const.UserPath).document(commentData.uid!)
+        listener2 = userRef.addSnapshotListener(){ (document, error) in
+            if let error = error {
+                print("DEBUG_PRINT: snapshotの取得が失敗しました。 \(error)")
+                return
+            }
+            
+            self.comNameLabel.text =  document?.get("username") as? String
+            let imageFileUrl = document?.get("profileImageUrl") as! String
+            self.showImage(imageView: self.comImageView, url: "\(imageFileUrl)")
+            
+        }
+        
         print("コメントデータ読み込む")
-        comNameLabel.text = "\(commentData.name!)"
         comTextLabel.text = "\(commentData.comment!)"
         
         // 日時の表示
@@ -50,6 +63,17 @@ class CommentTableViewCell: UITableViewCell {
         
         
         
+    }
+    
+    private func showImage(imageView: UIImageView, url: String) {
+        let url = URL(string: url)
+        do {
+            let data = try Data(contentsOf: url!)
+            let image = UIImage(data: data)
+            imageView.image = image
+        } catch let err {
+            print("Error: \(err.localizedDescription)")
+        }
     }
     
 }

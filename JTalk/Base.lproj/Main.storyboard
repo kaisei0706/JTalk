@@ -307,20 +307,26 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="お気に入りチーム" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OZF-5i-LhH">
+                                <rect key="frame" x="10" y="577.5" width="394" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gyi-8b-y9r">
                                 <rect key="frame" x="10" y="533.5" width="394" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jru-DQ-EaF">
-                                <rect key="frame" x="191.5" y="587.5" width="31" height="30"/>
+                                <rect key="frame" x="191.5" y="657.5" width="31" height="30"/>
                                 <state key="normal" title="登録"/>
                                 <connections>
                                     <action selector="registerButton:" destination="d3O-aJ-OcT" eventType="touchUpInside" id="HsV-9T-n8O"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z2R-yb-ceb">
-                                <rect key="frame" x="153" y="627.5" width="108" height="30"/>
+                                <rect key="frame" x="153" y="697.5" width="108" height="30"/>
                                 <state key="normal" title="ログイン画面へ"/>
                                 <connections>
                                     <action selector="loginNextButton:" destination="d3O-aJ-OcT" eventType="touchUpInside" id="LAw-NI-IZM"/>
@@ -350,6 +356,11 @@
                                     <action selector="tappedProfileImageButton:" destination="d3O-aJ-OcT" eventType="touchUpInside" id="Yje-wl-oqV"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oGG-Lm-XMz">
+                                <rect key="frame" x="10" y="603.5" width="394" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="2Nk-ht-ZId"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -357,10 +368,12 @@
                             <constraint firstItem="hzD-oI-Mv0" firstAttribute="leading" secondItem="2Nk-ht-ZId" secondAttribute="leading" constant="10" id="0Rf-2H-Ans"/>
                             <constraint firstItem="5oA-sL-pL3" firstAttribute="centerX" secondItem="Jru-DQ-EaF" secondAttribute="centerX" id="3WX-dX-d7l"/>
                             <constraint firstItem="5oA-sL-pL3" firstAttribute="centerX" secondItem="84p-xC-0yD" secondAttribute="centerX" id="3YD-e2-8YY"/>
+                            <constraint firstItem="Jru-DQ-EaF" firstAttribute="top" secondItem="oGG-Lm-XMz" secondAttribute="bottom" constant="20" id="3aC-PB-RLx"/>
                             <constraint firstItem="5oA-sL-pL3" firstAttribute="centerX" secondItem="z2R-yb-ceb" secondAttribute="centerX" id="4DZ-7d-bIA"/>
                             <constraint firstItem="5oA-sL-pL3" firstAttribute="centerX" secondItem="4jb-qd-uLL" secondAttribute="centerX" id="5of-ba-8lo"/>
                             <constraint firstItem="Gyi-8b-y9r" firstAttribute="top" secondItem="rUC-ld-SXY" secondAttribute="bottom" constant="5" id="6uK-gA-gqF"/>
                             <constraint firstItem="4jb-qd-uLL" firstAttribute="top" secondItem="5oA-sL-pL3" secondAttribute="bottom" constant="74" id="7FV-lm-DU6"/>
+                            <constraint firstItem="OZF-5i-LhH" firstAttribute="top" secondItem="Gyi-8b-y9r" secondAttribute="bottom" constant="10" id="Azw-gV-E8v"/>
                             <constraint firstItem="2Nk-ht-ZId" firstAttribute="trailing" secondItem="Gyi-8b-y9r" secondAttribute="trailing" constant="10" id="BGh-NZ-fpF"/>
                             <constraint firstItem="Gyi-8b-y9r" firstAttribute="leading" secondItem="2Nk-ht-ZId" secondAttribute="leading" constant="10" id="Bsw-6a-253"/>
                             <constraint firstItem="nnH-hh-7d6" firstAttribute="leading" secondItem="2Nk-ht-ZId" secondAttribute="leading" constant="10" id="FNG-BW-IZS"/>
@@ -369,16 +382,20 @@
                             <constraint firstItem="2Nk-ht-ZId" firstAttribute="trailing" secondItem="nnH-hh-7d6" secondAttribute="trailing" constant="10" id="Jlm-Vi-Pci"/>
                             <constraint firstItem="5oA-sL-pL3" firstAttribute="centerX" secondItem="Gyi-8b-y9r" secondAttribute="centerX" id="PUR-3K-Evs"/>
                             <constraint firstItem="84p-xC-0yD" firstAttribute="top" secondItem="hzD-oI-Mv0" secondAttribute="bottom" constant="5" id="QCT-ci-17x"/>
+                            <constraint firstItem="oGG-Lm-XMz" firstAttribute="top" secondItem="OZF-5i-LhH" secondAttribute="bottom" constant="5" id="TSR-Pq-8HL"/>
                             <constraint firstItem="2Nk-ht-ZId" firstAttribute="trailing" secondItem="hzD-oI-Mv0" secondAttribute="trailing" constant="10" id="WFY-15-fGE"/>
                             <constraint firstItem="4jb-qd-uLL" firstAttribute="leading" secondItem="2Nk-ht-ZId" secondAttribute="leading" constant="10" id="Z1F-Lj-HuJ"/>
                             <constraint firstItem="5oA-sL-pL3" firstAttribute="centerX" secondItem="bNt-DP-aNv" secondAttribute="centerX" id="bJk-Pu-lJ1"/>
+                            <constraint firstItem="OZF-5i-LhH" firstAttribute="trailing" secondItem="rUC-ld-SXY" secondAttribute="trailing" id="bs6-Vs-VIs"/>
                             <constraint firstItem="nnH-hh-7d6" firstAttribute="top" secondItem="5oA-sL-pL3" secondAttribute="bottom" constant="48.5" id="f9b-fB-uGc"/>
                             <constraint firstItem="z2R-yb-ceb" firstAttribute="top" secondItem="Jru-DQ-EaF" secondAttribute="bottom" constant="10" id="fbP-Ru-ytq"/>
                             <constraint firstItem="uST-kx-9fT" firstAttribute="top" secondItem="2Nk-ht-ZId" secondAttribute="top" constant="20" id="hQv-t2-xET"/>
+                            <constraint firstItem="oGG-Lm-XMz" firstAttribute="leading" secondItem="Gyi-8b-y9r" secondAttribute="leading" id="iLN-vq-4Rv"/>
                             <constraint firstItem="rUC-ld-SXY" firstAttribute="leading" secondItem="2Nk-ht-ZId" secondAttribute="leading" constant="10" id="jwB-9Q-av9"/>
+                            <constraint firstItem="oGG-Lm-XMz" firstAttribute="trailing" secondItem="Gyi-8b-y9r" secondAttribute="trailing" id="mgR-c3-Cfr"/>
                             <constraint firstItem="rUC-ld-SXY" firstAttribute="top" secondItem="84p-xC-0yD" secondAttribute="bottom" constant="10" id="qUt-Hc-ALC"/>
-                            <constraint firstItem="Jru-DQ-EaF" firstAttribute="top" secondItem="Gyi-8b-y9r" secondAttribute="bottom" constant="20" id="tcc-vq-t6Y"/>
                             <constraint firstItem="2Nk-ht-ZId" firstAttribute="trailing" secondItem="84p-xC-0yD" secondAttribute="trailing" constant="10" id="uxC-vN-AdP"/>
+                            <constraint firstItem="OZF-5i-LhH" firstAttribute="leading" secondItem="rUC-ld-SXY" secondAttribute="leading" id="vk9-KQ-Hkc"/>
                             <constraint firstItem="4jb-qd-uLL" firstAttribute="top" secondItem="nnH-hh-7d6" secondAttribute="bottom" constant="5" id="vpY-Wr-vk3"/>
                             <constraint firstItem="hzD-oI-Mv0" firstAttribute="top" secondItem="4jb-qd-uLL" secondAttribute="bottom" constant="10" id="w9S-sx-ClH"/>
                             <constraint firstItem="5oA-sL-pL3" firstAttribute="top" secondItem="uST-kx-9fT" secondAttribute="bottom" constant="20" id="wIx-MG-hiz"/>
@@ -391,6 +408,7 @@
                         <outlet property="emailTextFIeld" destination="4jb-qd-uLL" id="WF2-1b-6sD"/>
                         <outlet property="passwordTextField" destination="84p-xC-0yD" id="KSv-70-ynV"/>
                         <outlet property="profileImageButton" destination="5oA-sL-pL3" id="6My-wT-JkY"/>
+                        <outlet property="teamTextField" destination="oGG-Lm-XMz" id="Ms9-AE-t6r"/>
                         <outlet property="usernameTextField" destination="Gyi-8b-y9r" id="UVl-9G-iIC"/>
                     </connections>
                 </viewController>
@@ -996,7 +1014,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="pwk-Wg-rPn"/>
+        <segue reference="xFs-8y-DcG"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="home" width="25" height="25"/>

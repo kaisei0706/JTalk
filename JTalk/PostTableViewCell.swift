@@ -8,7 +8,9 @@
 import UIKit
 import FirebaseUI
 import Firebase
+import PKHUD
 import Nuke
+import SDWebImage
 
 class PostTableViewCell: UITableViewCell {
     
@@ -19,6 +21,7 @@ class PostTableViewCell: UITableViewCell {
     private var isOwner: Bool = false
     var id = ""
     var strCounter: Int = 0
+    var listener2: ListenerRegistration!
     
     
     @IBOutlet weak var post0ImageView: UIImageView!
@@ -117,6 +120,25 @@ class PostTableViewCell: UITableViewCell {
     func setPostData(_ postData: PostData, isOwner: Bool) {
         
         id = postData.id
+        let userRef = Firestore.firestore().collection(Const.UserPath).document(postData.uid!)
+        
+        
+        listener2 = userRef.addSnapshotListener(){ (document, error) in
+            if let error = error {
+                print("DEBUG_PRINT: snapshotの取得が失敗しました。 \(error)")
+                return
+            }
+            
+            self.userNameLabel.text =  document?.get("username") as? String
+            
+            let imageFileUrl = document?.get("profileImageUrl") as! String
+            print("ユーアールエル\(imageFileUrl)")
+            
+            self.showImage(imageView: self.userImageView, url: "\(imageFileUrl)")
+            
+        }
+
+        
         // 画像の表示
         post0ImageView.sd_imageIndicator = SDWebImageActivityIndicator.gray
         post1ImageView.sd_imageIndicator = SDWebImageActivityIndicator.gray
@@ -174,9 +196,6 @@ class PostTableViewCell: UITableViewCell {
             strCounter += 1
         }
         
-        
-        
-        self.userNameLabel.text = "\(postData.name!)"
         // 投稿の表示
         self.userTextLabel.text = "\(postData.text!)"
         
@@ -187,11 +206,6 @@ class PostTableViewCell: UITableViewCell {
             formatter.dateFormat = "yyyy-MM-dd HH:mm"
             let dateString = formatter.string(from: date)
             self.dateLabel.text = dateString
-            
-            if let url = URL(string: postData.profileImageUrl ?? "") {
-                Nuke.loadImage(with: url, into: userImageView)
-            }
-            
             
         }
         if postData.commentCount == nil {
@@ -215,6 +229,17 @@ class PostTableViewCell: UITableViewCell {
         self.isOwner = isOwner
         
         
+    }
+    
+    private func showImage(imageView: UIImageView, url: String) {
+        let url = URL(string: url)
+        do {
+            let data = try Data(contentsOf: url!)
+            let image = UIImage(data: data)
+            imageView.image = image
+        } catch let err {
+            print("Error: \(err.localizedDescription)")
+        }
     }
     
 }
